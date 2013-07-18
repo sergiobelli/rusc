@@ -14,7 +14,7 @@ class TipologieController {
 
 		/*$dbhost = "localhost";
 		$dbuser = "root";
-		$dbname = "monnezza";
+		$dbname = "rusc";
 		$dbpass = "";*/
 		
 		$conn = null;
@@ -24,12 +24,12 @@ class TipologieController {
 			
 			$cmd = "
 				select 
-					tipologia_monnezza.id as id_tipologia,
-					tipologia_monnezza.codice as codice_tipologia,
-					tipologia_monnezza.descrizione as descrizione_tipologia 
+					tipologia.id as id_tipologia,
+					tipologia.codice as codice_tipologia,
+					tipologia.descrizione as descrizione_tipologia 
 				from 
-					tipologia_monnezza
-				order by tipologia_monnezza.codice";
+					tipologia
+				order by tipologia.codice";
 
 			$result = $conn->prepare($cmd);
 			$result->execute();

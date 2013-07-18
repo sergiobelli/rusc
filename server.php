@@ -3,36 +3,36 @@ require_once('lib/nusoap.php');
 
 $server = new nusoap_server; // Create server instance
 
-$server->configureWSDL('monnezzaws','http://localhost/services/nusoap/monnezza/server');
+$server->configureWSDL('ruscws','http://localhost/services/rusc/server');
 
 $server->register( 'elencoConferimenti',
 	array("param"=>"xsd:string"), // inputs
 	array("result"=>"xsd:string"), // outputs
-	'http://localhost/services/nusoap/monnezza/server' // element namespace
+	'http://localhost/services/rusc/server' // element namespace
 );
 
 $server->register( 'elencoOperatori',
 	array("param"=>"xsd:string"), // inputs
 	array("result"=>"xsd:string"), // outputs
-	'http://localhost/services/nusoap/monnezza/server' // element namespace
+	'http://localhost/services/rusc/server' // element namespace
 );
 
 $server->register( 'elencoTipologie',
 	array("param"=>"xsd:string"), // inputs
 	array("result"=>"xsd:string"), // outputs
-	'http://localhost/services/nusoap/monnezza/server' // element namespace
+	'http://localhost/services/rusc/server' // element namespace
 );
 
 $server->register( 'nuovoConferimento',
 	array("data"=>"xsd: dateTime", "idTipologia"=>"xsd:string", "idOperatore"=>"xsd:string"), // inputs
 	array("result"=>"xsd:string"), // outputs
-	'http://localhost/services/nusoap/monnezza/server' // element namespace
+	'http://localhost/services/rusc/server' // element namespace
 );
 
 $server->register( 'login',
 	array("username"=>"xsd:string", "password"=>"xsd:string"), // inputs
 	array("result"=>"xsd:string"), // outputs
-	'http://localhost/services/nusoap/monnezza/server' // element namespace
+	'http://localhost/services/rusc/server' // element namespace
 );
 
 function login($username, $password) {
@@ -76,7 +76,7 @@ function nuovoConferimento($data, $idTipologia, $idOperatore) {
 		
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbname = "monnezza";
+	$dbname = "rusc";
 	$dbpass = "";
 	
 	$conn = null;
@@ -90,7 +90,7 @@ function nuovoConferimento($data, $idTipologia, $idOperatore) {
 		$conn->beginTransaction();
 		
 		$sql = "
-			insert into conferimenti_monnezza (data, tipologia, operatore) 
+			insert into conferimenti (data, tipologia, operatore) 
 			values (:data, :tipologia, :operatore)";
 		
 		$statement = $conn->prepare($sql);

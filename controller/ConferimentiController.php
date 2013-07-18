@@ -20,17 +20,17 @@ class ConferimentiController {
 			
 			$cmd = "
 				select 
-					conferimenti_monnezza.id as id_conferimento,
-					tipologia_monnezza.descrizione as descrizione_conferimento, 
-					conferimenti_monnezza.data as data_conferimento,
+					conferimenti.id as id_conferimento,
+					tipologia.descrizione as descrizione_conferimento, 
+					conferimenti.data as data_conferimento,
 					operatori.descrizione as descrizione_operatore
 				from 
-					conferimenti_monnezza, 
-					tipologia_monnezza,
+					conferimenti, 
+					tipologia,
 					operatori
 				where 
-					conferimenti_monnezza.tipologia = tipologia_monnezza.id
-					and conferimenti_monnezza.operatore = operatori.id
+					conferimenti.tipologia = tipologia.id
+					and conferimenti.operatore = operatori.id
 					and operatori.id = ".$idOperatore;
 
 			$result = $conn->prepare($cmd);

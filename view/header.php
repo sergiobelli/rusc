@@ -12,7 +12,7 @@ $utenza   = $_SESSION['username'];
 	
 ?>
 
-	<title>.: Monnezza - Gestionale per la pattumiera condominiale :.</title>
+	<title>.: Rusc - Gestionale per la pattumiera condominiale :.</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
