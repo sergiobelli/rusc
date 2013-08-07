@@ -321,3 +321,5 @@ AndroidTestApp/AndroidManifest.xml
 .metadata/.plugins/com.android.ide.eclipse.adt/palette-preview-r16b-17-apptheme-37inwvganexusone/AutoCompleteTextView.png
 .metadata/.plugins/com.android.ide.eclipse.adt/palette-preview-r16b-17-apptheme-37inwvganexusone/AnalogClock.png
 .metadata/.log
+rusc_test/AndroidTestApp/.classpath
+rusc_test/AndroidTestApp/.settings/org.eclipse.jdt.core.prefs
