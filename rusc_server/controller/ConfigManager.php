@@ -25,7 +25,7 @@ class ConfigManager {
 	public function __construct() {
 	
 		$this->ambiente				= "locale"; //"online";
-		$this->versione				= "v_1_0_0_20130711";
+		$this->versione				= "v_1_0_0_20130814";
 		
 		//Parametri di accesso: localhost
 		$this->Host_locale     		= "localhost";

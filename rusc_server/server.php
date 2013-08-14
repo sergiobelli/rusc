@@ -39,6 +39,20 @@ $server->register( 'login',
 	$elementNamespace // element namespace
 );
 
+$server->register( 'version',
+	array("param"=>"xsd:string"), // inputs
+	array("result"=>"xsd:string"), // outputs
+	$elementNamespace // element namespace
+);
+
+function version() {
+	
+	require_once("controller/ConfigManager.php");
+	$ConfigManager = new ConfigManager();
+	return $ConfigManager->getVersione();
+	
+}
+
 function login($username, $password) {
 	
 	
