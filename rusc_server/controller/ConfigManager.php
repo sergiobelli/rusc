@@ -12,7 +12,8 @@ class ConfigManager {
 		$User_locale, 
 		$Password_locale, 
 		$table_prefix_locale,
-		$elementNamespace_locale;
+		$elementNamespace_locale,
+		$gecredNamespace_locale;
 		
 	public 
 		$Host, 
@@ -20,7 +21,8 @@ class ConfigManager {
 		$User, 
 		$Password, 
 		$table_prefix,
-		$elementNamespace;
+		$elementNamespace,
+		$gecredNamespace;
 	
 	public function __construct() {
 	
@@ -34,6 +36,7 @@ class ConfigManager {
 		$this->Password_locale 		= "";
 		$this->table_prefix_locale 		= "rusc";
 		$this->elementNamespace_locale 	= "http://localhost/services/rusc/server";
+		$this->gecredNamespace_locale 	= "http://localhost/services/gecred/server";
 		
 		//Parametri di accesso: sergiobelli.net
 		$this->Host     				= "sql.sergiobelli.net";
@@ -42,6 +45,7 @@ class ConfigManager {
 		$this->Password 				= "serg73625";
 		$this->table_prefix 			= "rusc";
 		$this->elementNamespace		 	= "http://www.sergiobelli.net/services/rusc/server";
+		$this->gecredNamespace		 	= "http://www.sergiobelli.net/services/gecred/server";
 	
 	}
 		
@@ -98,6 +102,14 @@ class ConfigManager {
 			return $this->elementNamespace;
 		} else {
 			return $this->elementNamespace_locale;
+		}
+	}
+	
+	function getGecredNamespace () {
+		if ($this->ambiente == "online") {
+			return $this->gecredNamespace;
+		} else {
+			return $this->gecredNamespace_locale;
 		}
 	}
 }

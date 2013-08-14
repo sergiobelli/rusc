@@ -55,11 +55,15 @@ function version() {
 
 function login($username, $password) {
 	
+	$ConfigManager = new ConfigManager();
+	$elementNamespace = $ConfigManager->getGecredNamespace();
+	$gecredUrl = $elementNamespace.'.php?wsdl';
 	
-	require_once("controller/LoginController.php");
-	$LoginController = new LoginController();
+	$client = new nusoap_client($gecredUrl, true); // false: no WSDL
 	
-	return $LoginController->login($username, $password);
+	// Call the SOAP method
+	$result = $client->call('login',array('username' => $username, 'password' => $password));
+	return $result;
 	
 }
 
